@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+- docker info
+- docker build -t woditschka:centos:7 .
