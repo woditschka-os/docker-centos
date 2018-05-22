@@ -5,4 +5,4 @@ services:
 
 script:
 - docker info
-- docker build -t woditschka:centos:7 .
+- docker build -t quay.io/woditschka/centos:7 .
