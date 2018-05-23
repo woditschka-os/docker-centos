@@ -1,11 +1,15 @@
 sudo: required
+dist: trusty
+
 services:
 - docker
+
 script:
 - docker info
 - echo "$DOCKER_PASSWORD" | docker login quay.io -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t quay.io/woditschka/centos:7 .
 - docker push quay.io/woditschka/centos:7
+
 env:
   global:
   - secure: HTUQMio9zMd5aoXXR6n+3eXqWggFxNjart2+Sbg7OKHdrN6+OftVJGM5P0aBd6qSTyq9o5jjaTMZ0NdIPBhoIaMfBXvf7d5vjcHR0KOcfdzmDEfTyoAIAHUDaXTXCivy+b7i0WqcM7MWgxSvW9YXO+rBhng/lJInTlhmFpNyoeuTCqWnZTcoXLSARWUXVCIzmr4mKw5rBLe95mWoM3yFtZyMqNy/dv5PvE+3KwZnVBVZSDZCHUQJrkMn0bFkds/YRjOUCz9D5sRUGLbb+dthpyUrtcsKwgKCT342erOXEUbW9zJwekLuH6Pl8OcrmHiDbiaaF0vsMcB1OBy8Npa77Fn/mB0O14DyQJ6G3gEts4f/eCWNWeA+gAAslDxWdf/0razBOsBOrQfNG/1Iz4/PTrYEg+bTCwj3Rr6Cmc5Xx6tg0F3msOhivc0N58jhHZXAGAZA6U9OxUrBQlyFax1GJXwWKn/MVZlV96uMPzg/oipXPztQq2GvOsMGLbsl0/eKFd+GSf7/goWUNYrkYPFopLavrbNIpe/e2XATx5XOSSfUgZ5lSQ2hpxSdfotDMgOX4jHk+y9RvVBE6dWT9Tg3IGd/On1T+2DPNIHuZaFaG3K7b6ZMlDmP4dA1yIDjXwx02V3EBWOdyMJoMBxClqzXVslDsNO1r7v8tiQSNdJpRAI=
